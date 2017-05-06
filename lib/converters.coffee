@@ -109,7 +109,7 @@ module.exports = [
     surroundingBlankLines: false
     replacement: (content, node) ->
       alt = getAttribute(node, 'alt') or ''
-      url = getAttribute(node, 'src') or ''
+      url = decodeURI(getAttribute(node, 'src') or '')
       title = getAttribute(node, 'title')
       if title
         "![#{alt}](#{url} \"#{title}\")"
